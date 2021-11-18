@@ -1,5 +1,5 @@
 #!/bin/bash
-tmpfile=".clean_all.tmp"
+tmpfile=".cleanall.tmp"
 
 find */*/Makefile | sed 's/Makefile//g' > $tmpfile
 
