@@ -1,6 +1,9 @@
-NAME	=	
+NAME	=	Traps
 CC		=	g++
-FILES	=	
+FILES	=	Main\
+			ClapTrap\
+			ScavTrap\
+			FragTrap
 OBJ 	=	$(FILES:%=%.o)
 SRC		=	$(FILES:%=%.cpp)
 CFLAGS	=	-I . -std=c++98 -pedantic -Wall -Wextra
