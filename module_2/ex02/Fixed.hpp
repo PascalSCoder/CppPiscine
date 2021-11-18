@@ -39,6 +39,8 @@ public:
 	
 	static Fixed& Max(Fixed& lhs, Fixed& rhs);
 	static const Fixed& Max(const Fixed& lhs, const Fixed& rhs);
+	static Fixed& Min(Fixed& lhs, Fixed& rhs);
+	static const Fixed& Min(const Fixed& lhs, const Fixed& rhs);
 };
 
 std::ostream& operator<<(std::ostream& o, const Fixed& ref);

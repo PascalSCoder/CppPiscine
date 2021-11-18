@@ -6,41 +6,30 @@
 
 Fixed::Fixed()
 {
-	std::cout << "Default constructor called" << std::endl;
-
 	_value = 0;
 }
 
 Fixed::Fixed(const Fixed& ref)
 {
-	std::cout << "Copy constructor called" << std::endl;
-
 	*this = ref;
 }
 
 Fixed::Fixed(const int val)
 {
-	std::cout << "Int constructor called" << std::endl;
-
 	_value = val * 256;
 }
 
 Fixed::Fixed(const float val)
 {
-	std::cout << "Float constructor called" << std::endl;
-
 	_value = (int)(roundf(val * 256));
 }
 
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called" << std::endl;
 }
 
 Fixed&	Fixed::operator=(const Fixed& ref)
 {
-	std::cout << "Assignation operator called" << std::endl;
-
 	this->_value = ref.GetRawBits();
 	return *this;
 }
@@ -89,32 +78,44 @@ Fixed& Fixed::operator-(const Fixed& ref)
 
 Fixed& Fixed::operator*(const Fixed& ref)
 {
-	this->_value *= ref.GetRawBits();
+	_value = (int)roundf(ToFloat() * ref.ToFloat() * 256);
 	return *this;
 }
 
 Fixed& Fixed::operator/(const Fixed& ref)
 {
-	this->_value /= ref.GetRawBits();
+	_value = (int)roundf(ToFloat() / ref.ToFloat() * 256);
 	return *this;
 }
 
 Fixed& Fixed::operator++()
 {
-	this->_value += 1;// (1 / 256));
+	this->_value += 1;
 	return *this;
 }
 
 Fixed& Fixed::operator--()
 {
-	this->_value -= 1;// (1 / 256));
+	this->_value -= 1;
 	return *this;
+}
+
+Fixed	Fixed::operator++(int)
+{
+	Fixed retval(ToFloat());
+	_value += 1;
+	return (retval);
+}
+
+Fixed	Fixed::operator--(int)
+{
+	Fixed retval(ToFloat());
+	_value -= 1;
+	return retval;
 }
 
 int Fixed::GetRawBits() const
 {
-	std::cout << "GetRawBits member function called" << std::endl;
-
 	return _value;
 }
 
@@ -130,7 +131,7 @@ float Fixed::ToFloat() const
 
 int Fixed::ToInt() const
 {
-	return _value / 256;
+	return (int)roundf(ToFloat());
 }
 
 std::ostream& operator<<(std::ostream& o, const Fixed& ref)
@@ -139,7 +140,7 @@ std::ostream& operator<<(std::ostream& o, const Fixed& ref)
 	return o;
 }
 
-Fixed& Max(Fixed& lhs, Fixed& rhs)
+Fixed& Fixed::Max(Fixed& lhs, Fixed& rhs)
 {
 	if (lhs.ToFloat() >= rhs.ToFloat())
 		return lhs;
@@ -147,9 +148,25 @@ Fixed& Max(Fixed& lhs, Fixed& rhs)
 		return rhs;
 }
 
-const Fixed& Max(const Fixed& lhs, const Fixed& rhs)
+const Fixed& Fixed::Max(const Fixed& lhs, const Fixed& rhs)
 {
 	if (lhs.ToFloat() >= rhs.ToFloat())
+		return lhs;
+	else
+		return rhs;
+}
+
+Fixed& Fixed::Min(Fixed& lhs, Fixed& rhs)
+{
+	if (lhs.ToFloat() <= rhs.ToFloat())
+		return lhs;
+	else
+		return rhs;
+}
+
+const Fixed& Fixed::Min(const Fixed& lhs, const Fixed& rhs)
+{
+	if (lhs.ToFloat() <= rhs.ToFloat())
 		return lhs;
 	else
 		return rhs;
