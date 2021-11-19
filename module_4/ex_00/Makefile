@@ -1,13 +1,12 @@
-NAME	=	Traps
+NAME	=	Animals
 CC		=	g++
 FILES	=	Main\
-			ClapTrap\
-			ScavTrap\
-			FragTrap\
-			DiamondTrap
+			Animal\
+			Dog\
+			Cat
 OBJ 	=	$(FILES:%=%.o)
 SRC		=	$(FILES:%=%.cpp)
-CFLAGS	=	-I . -std=c++98 -pedantic -Wall -Wextra -Wshadow
+CFLAGS	=	-I . -std=c++98 -pedantic -Wall -Wextra
 
 all: $(NAME)
 

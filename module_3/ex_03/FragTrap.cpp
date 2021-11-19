@@ -3,12 +3,21 @@
 #include <string>
 #include <iostream>
 
+FragTrap::FragTrap()
+{
+	_hp = 100;
+	_ad = 30;
+
+	std::cout << "FragTrap base ctor called" << std::endl;
+}
+
 FragTrap::FragTrap(std::string name)
 {
 	_name = name;
 	_hp = 100;
 	_energy = 100;
 	_ad = 30;
+
 	std::cout << "FragTrap " << name << " ctor called" << std::endl;
 }
 
