@@ -1,6 +1,6 @@
 NAME	=	megaphone
 CC		=	g++
-FILES	=	megaphone
+FILES	=	Megaphone
 OBJ 	=	$(FILES:%=%.o)
 SRC		=	$(FILES:%=%.cpp)
 CFLAGS	=	-Wall -Wextra -Werror

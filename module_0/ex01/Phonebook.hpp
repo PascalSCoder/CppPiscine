@@ -8,13 +8,13 @@ class	Phonebook
 {
 public:
 	Phonebook();
-	void Add();
-	void Search() const;
+	void	Add();
+	void	Search() const;
 	~Phonebook();
 
 private:
-	Contact _contacts[8];
-	int _head;
+	Contact	_contacts[8];
+	int		_head;
 };
 
 #endif
