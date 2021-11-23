@@ -3,7 +3,7 @@ CC		=	g++
 FILES	=	Zombie\
 			NewZombie\
 			RandomChump\
-			main
+			Main
 OBJ 	=	$(FILES:%=%.o)
 SRC		=	$(FILES:%=%.cpp)
 CFLAGS	=	-I . -std=c++98 -pedantic -Wall -Wextra

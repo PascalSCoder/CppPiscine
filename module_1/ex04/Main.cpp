@@ -33,37 +33,33 @@ static void	WriteToDuplicate(std::string fname, std::string s1, std::string s2)
 		return;
 	}
 
-	std::ifstream	inFile(fname);
+	std::ifstream inFile(fname);
 	if (inFile.fail())
 	{
 		std::cout << "Invalid input file supplied." << std::endl;
 		return;
 	}
 
-	std::ofstream	outFile(fname + ".replace");
+	std::ofstream outFile(fname + ".replace");
 	if (outFile.fail())
 	{
 		std::cout << "Error creating file: " << fname + ".replace" << std::endl;
 		return;
 	}
 
-	std::string		line;
+	std::string line;
 
 	while (std::getline(inFile, line))
 	{
 		line = Replace(line, s1, s2);
 		outFile << line << std::endl;
 	}
-	outFile.close();
-	inFile.close();
 }
 
 int	main(int argc, char **argv)
 {
 	if (argc == 4)
-	{
 		WriteToDuplicate(argv[1], argv[2], argv[3]);
-	}
 	else
 		std::cout << "Run as replace [filename] [s1] [s2]" << std::endl;
 }

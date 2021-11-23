@@ -1,4 +1,4 @@
-#include <Karen.hpp>
+#include "Karen.hpp"
 
 #include <string>
 #include <iostream>
@@ -23,39 +23,21 @@ Karen::Karen(std::string filterLevel)
 
 void Karen::Complain() const
 {
-	int	complaintLevel;
-
-	if (_filterLevel == LevelInsignificant)
+	switch (_filterLevel)
 	{
+	case LevelInsignificant:
 		Insignificant();
 		return;
-	}
-	complaintLevel = LevelDebug;
-	while (complaintLevel <= LevelError)
-	{
-		if (complaintLevel >= _filterLevel)
-		{
-			switch (complaintLevel)
-			{
-			case LevelInsignificant:
-				return;
-			case LevelDebug:
-				Debug();
-				break;
-			case LevelInfo:
-				Info();
-				break;
-			case LevelWarning:
-				Warning();
-				break;
-			case LevelError:
-				Error();
-				break;
-			default:
-				return;
-			}
-		}
-		complaintLevel++;
+	case LevelDebug:
+		Debug();
+	case LevelInfo:
+		Info();
+	case LevelWarning:
+		Warning();
+	case LevelError:
+		Error();
+	default:
+		return;
 	}
 }
 

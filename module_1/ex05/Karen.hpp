@@ -9,8 +9,8 @@ public:
 	void	Complain(std::string level);
 
 private:
-	void	Debug();
 	void	Info();
+	void	Debug();
 	void	Warning();
 	void	Error();
 };

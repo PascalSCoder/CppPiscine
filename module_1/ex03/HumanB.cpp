@@ -5,7 +5,7 @@ HumanB::HumanB(std::string name) : _name(name)
 {
 }
 
-void	HumanB::Attack()
+void	HumanB::Attack() const
 {
 	std::cout << _name << " attacks with his " << _weapon->GetType() << std::endl;
 }

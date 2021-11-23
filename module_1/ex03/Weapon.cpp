@@ -8,7 +8,7 @@ Weapon::Weapon()
 {
 }
 
-std::string	Weapon::GetType()
+std::string	Weapon::GetType() const
 {
 	return _type;
 }

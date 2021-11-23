@@ -1,6 +1,6 @@
 NAME	=	ZombieHorde
 CC		=	g++
-FILES	=	../ex00/Zombie\
+FILES	=	Zombie\
 			ZombieHorde\
 			Main
 OBJ 	=	$(FILES:%=%.o)
