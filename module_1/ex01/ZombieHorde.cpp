@@ -4,12 +4,14 @@
 
 Zombie* ZombieHorde(int N, std::string name)
 {
-	Zombie *zombies;
+	if (N <= 0)
+		return nullptr;
 
-	zombies = new Zombie[N];
+	Zombie *zombies = new Zombie[N];
 	for (int i = 0; i < N; i++)
 	{
 		zombies[i].SetName(name);
+		zombies[i].Announce();
 	}
 	return zombies;
 }

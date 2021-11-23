@@ -17,5 +17,30 @@ int main( void )
 	std::cout << Fixed::Max( a, b ) << std::endl;
 
 	std::cout << c << std::endl;
+	std::cout << c.ToInt() << std::endl;
+	std::cout << c.ToFloat() << std::endl;
+
+	std::cout << std::endl << "Comparisons overload:" << std::endl;
+
+	a = Fixed(3);
+	if (a <= Fixed(3.1f))
+		std::cout << "Lower/equal" << std::endl;
+	else
+		std::cout << "higher" << std::endl;
+
+	if (a == Fixed(3.1f))
+		std::cout << "Equal" << std::endl;
+	else
+		std::cout << "Not equal" << std::endl;
+
+	if (a >= Fixed(3.1f))
+		std::cout << "Higher/equal" << std::endl;
+	else
+		std::cout << "Lower" << std::endl;
+
+	if (a != Fixed(3.0f))
+		std::cout << "Not equal" << std::endl;
+	else
+		std::cout << "Equal" << std::endl;
 	return 0;
 }

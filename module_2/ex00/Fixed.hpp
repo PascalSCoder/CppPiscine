@@ -13,8 +13,8 @@ public:
 	void	SetRawBits(int const raw);
 
 private:
-	int _fixedPointValue;
-	static const int _fract = 8;
+	static const int	_fractBits = 8;
+	int					_fixedPointValue;
 };
 
 #endif

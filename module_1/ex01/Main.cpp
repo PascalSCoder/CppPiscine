@@ -5,12 +5,8 @@ Zombie* ZombieHorde(int N, std::string name);
 int	main()
 {
 	Zombie *zombies;
-	const int zombieCount = 3;
-
-	zombies = ZombieHorde(zombieCount, "Zumbie");
-	for (int i = 0; i < zombieCount; i++)
-	{
-		zombies[i].Announce();
-	}
+	zombies = ZombieHorde(-1, "Zumbie -1");
+	zombies = ZombieHorde(0, "Zumbie 0");
+	zombies = ZombieHorde(3, "Zumbie");
 	delete[] zombies;
 }
