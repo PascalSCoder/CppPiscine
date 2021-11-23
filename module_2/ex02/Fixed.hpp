@@ -5,10 +5,6 @@
 
 class	Fixed
 {
-private:
-	static const int _fractBits = 8;
-	int _value;
-
 public:
 	Fixed();
 	Fixed(const Fixed& ref);
@@ -32,17 +28,22 @@ public:
 	Fixed	operator++(int); // postfix
 	Fixed	operator--(int); // postfix
 
-	int GetRawBits() const;
-	void SetRawBits(int const raw);
-	float ToFloat() const;
-	int ToInt() const;
+	int		GetRawBits() const;
+	void	SetRawBits(int const raw);
+	float	ToFloat() const;
+	int		ToInt() const;
 	
-	static Fixed& Max(Fixed& lhs, Fixed& rhs);
-	static const Fixed& Max(const Fixed& lhs, const Fixed& rhs);
-	static Fixed& Min(Fixed& lhs, Fixed& rhs);
-	static const Fixed& Min(const Fixed& lhs, const Fixed& rhs);
+	static Fixed&		Max(Fixed& lhs, Fixed& rhs);
+	static const Fixed&	Max(const Fixed& lhs, const Fixed& rhs);
+	static Fixed&		Min(Fixed& lhs, Fixed& rhs);
+	static const Fixed&	Min(const Fixed& lhs, const Fixed& rhs);
+
+private:
+	static const int	_fractBits = 8;
+	int					_value;
+
 };
 
-std::ostream& operator<<(std::ostream& o, const Fixed& ref);
+std::ostream&	operator<<(std::ostream& o, const Fixed& ref);
 
 #endif
