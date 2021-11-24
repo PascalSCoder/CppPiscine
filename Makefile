@@ -15,7 +15,7 @@ obj/%.o: %.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJ)
+	rm -rf obj/
 
 fclean: clean
 	rm -f $(NAME)
