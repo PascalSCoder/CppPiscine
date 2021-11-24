@@ -1,16 +1,17 @@
 NAME	=	
 CC		=	g++
 FILES	=	
-OBJ 	=	$(FILES:%=%.o)
+OBJ 	=	$(FILES:%=obj/%.o)
 SRC		=	$(FILES:%=%.cpp)
-CFLAGS	=	-I . -std=c++98 -pedantic -Wall -Wextra
+CFLAGS	=	-I . -std=c++98 -pedantic -Wall -Wextra# -Werror
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
-%.o: %.cpp
+obj/%.o: %.cpp
+	@mkdir -p obj/
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

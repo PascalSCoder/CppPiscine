@@ -5,18 +5,22 @@
 
 DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name)
 {
-	_name = name;
+	std::cout << "DiamondTrap " << name << " ctor called" << std::endl;
 
-	std::cout << "DiamondTrap " << _name << " ctor called" << std::endl;
+	_name = name;
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap& ref)
 {
+	std::cout << "DiamondTrap" << ref._name << " copy ctor called" << std::endl;
+
 	*this = ref;
 }
 
 DiamondTrap&	DiamondTrap::operator=(const DiamondTrap& ref)
 {
+	std::cout << "DiamondTrap " << ref._name << " assignation operator called" << std::endl;
+
 	_name = ref._name;
 	_energy = ref._energy;
 	_ad = ref._ad;

@@ -5,28 +5,32 @@
 
 ScavTrap::ScavTrap()
 {
-	_energy = 50;
-
 	std::cout << "ScavTrap base ctor called" << std::endl;
+
+	_energy = 50;
 }
 
 ScavTrap::ScavTrap(std::string name)
 {
+	std::cout << "ScavTrap " << name << " ctor called" << std::endl;
+
 	_name = name;
 	_hp = 100;
 	_energy = 50;
 	_ad = 20;
-
-	std::cout << "ScavTrap " << name << " ctor called" << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap& ref)
 {
+	std::cout << "ScavTrap " << ref._name << " copy ctor called" << std::endl;
+
 	*this = ref;
 }
 
 ScavTrap&	ScavTrap::operator=(const ScavTrap& ref)
 {
+	std::cout << "ScavTrap " << ref._name << " assignation operator called" << std::endl;
+
 	_name = ref._name;
 	_hp = ref._hp;
 	_energy = ref._energy;

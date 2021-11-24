@@ -10,21 +10,25 @@ ClapTrap::ClapTrap()
 
 ClapTrap::ClapTrap(std::string name)
 {
+	std::cout << "ClapTrap " << name << " ctor called" << std::endl;
+
 	_name = name;
 	_hp = 10;
 	_energy = 10;
 	_ad = 0;
-
-	std::cout << "ClapTrap " << name << " ctor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& ref)
 {
+	std::cout << "ClapTrap " << ref._name << " copy ctor called" << std::endl;
+
 	*this = ref;
 }
 
 ClapTrap&	ClapTrap::operator=(const ClapTrap& ref)
 {
+	std::cout << "ClapTrap " << ref._name << " assignation operator called" << std::endl;
+
 	_name = ref._name;
 	_hp = ref._hp;
 	_energy = ref._energy;

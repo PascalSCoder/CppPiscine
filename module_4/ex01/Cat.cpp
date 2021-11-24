@@ -1,18 +1,20 @@
-#include <Cat.hpp>
-
 #include <string>
 #include <iostream>
+
+#include "Cat.hpp"
 
 Cat::Cat() : Animal("Cat")
 {
 	std::cout << "Cat ctor called" << std::endl;
+
+	_brain = new Brain();
 }
 
 Cat::Cat(const Cat& ref)
 {
-	std::cout << "Cat copy ctor called" << std::endl;
+	std::cout << "Dog copy ctor called" << std::endl;
 
-	*this = ref;
+	this->_brain = new Brain(*ref._brain);
 }
 
 Cat&	Cat::operator=(const Cat& ref)
@@ -24,6 +26,8 @@ Cat&	Cat::operator=(const Cat& ref)
 Cat::~Cat()
 {
 	std::cout << "Cat dtor called" << std::endl;
+
+	delete _brain;
 }
 
 void Cat::MakeSound() const

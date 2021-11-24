@@ -5,20 +5,25 @@
 
 FragTrap::FragTrap(std::string name)
 {
+	std::cout << "FragTrap " << name << " ctor called" << std::endl;
+
 	_name = name;
 	_hp = 100;
 	_energy = 100;
 	_ad = 30;
-	std::cout << "FragTrap " << name << " ctor called" << std::endl;
 }
 
 FragTrap::FragTrap(const FragTrap& ref)
 {
+	std::cout << "FragTrap " << ref._name << " copy ctor called" << std::endl;
+
 	*this = ref;
 }
 
 FragTrap&	FragTrap::operator=(const FragTrap& ref)
 {
+	std::cout << "FragTrap " << ref._name << " assignation operator called" << std::endl;
+
 	_name = ref._name;
 	_hp = ref._hp;
 	_energy = ref._energy;
