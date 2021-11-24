@@ -10,13 +10,14 @@ public:
 	Animal(std::string type);
 	Animal(const Animal& ref);
 	Animal& operator=(const Animal& ref);
-	virtual ~Animal();
+	virtual	~Animal();
 
-	std::string GetType() const;
-	virtual void MakeSound() const;
+	std::string	GetType() const;
+
+	virtual void	MakeSound() const;
 
 protected:
-	std::string _type;
+	std::string	_type;
 };
 
 #endif

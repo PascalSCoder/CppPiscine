@@ -4,16 +4,16 @@ FILES	=	Main\
 			Animal\
 			Dog\
 			Cat
-OBJ 	=	$(FILES:%=%.o)
+OBJ 	=	$(FILES:%=obj/%.o)
 SRC		=	$(FILES:%=%.cpp)
-CFLAGS	=	-I . -std=c++98 -pedantic -Wall -Wextra
+CFLAGS	=	-I . -std=c++98 -pedantic -Wall -Wextra -Werror
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
-%.o: %.cpp
+obj/%.o: %.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
