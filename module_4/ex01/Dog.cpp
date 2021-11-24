@@ -10,7 +10,7 @@ Dog::Dog() : Animal("Dog")
 	_brain = new Brain();
 }
 
-Dog::Dog(const Dog& ref)
+Dog::Dog(const Dog& ref) : Animal(ref)
 {
 	std::cout << "Dog copy ctor called" << std::endl;
 
@@ -33,4 +33,9 @@ Dog::~Dog()
 void Dog::MakeSound() const
 {
 	std::cout << "Woef! Woef! ... (continues barking while we continue)" << std::endl;
+}
+
+Brain Dog::GetBrain() const
+{
+	return *_brain;
 }

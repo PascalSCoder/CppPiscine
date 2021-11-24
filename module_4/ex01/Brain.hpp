@@ -15,10 +15,11 @@ public:
 
 	std::string	GetIdea(unsigned int index) const;
 	void		AddIdea(std::string idea);
+	int			GetIdeaCount() const;
 
 private:
-	std::string	_ideas[IDEACOUNT];
-	int			_ideaN;
+	std::string		_ideas[IDEACOUNT];
+	unsigned int	_ideaCount;
 };
 
 #endif

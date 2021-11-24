@@ -10,7 +10,7 @@ Cat::Cat() : Animal("Cat")
 	_brain = new Brain();
 }
 
-Cat::Cat(const Cat& ref)
+Cat::Cat(const Cat& ref) : Animal(ref)
 {
 	std::cout << "Dog copy ctor called" << std::endl;
 
@@ -33,4 +33,9 @@ Cat::~Cat()
 void Cat::MakeSound() const
 {
 	std::cout << "Miauw, miauw.. miauw?" << std::endl;
+}
+
+void	Cat::AddIdea(std::string idea)
+{
+
 }
