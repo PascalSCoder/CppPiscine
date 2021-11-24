@@ -6,7 +6,7 @@ FILES	=	Main\
 			Weapon
 OBJ 	=	$(FILES:%=%.o)
 SRC		=	$(FILES:%=%.cpp)
-CFLAGS	=	-I . -std=c++98 -pedantic -Wall -Wextra
+CFLAGS	=	-I . -std=c++98 -pedantic -Wall -Wextra -Werror
 
 all: $(NAME)
 

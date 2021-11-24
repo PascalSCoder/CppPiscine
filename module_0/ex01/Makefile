@@ -5,7 +5,7 @@ FILES	=	Main\
 			Utils
 OBJ 	=	$(FILES:%=%.o)
 SRC		=	$(FILES:%=%.cpp)
-CFLAGS	=	-Wall -Wextra -I . -std=c++98 -pedantic
+CFLAGS	=	-Wall -Wextra -Werror -I . -std=c++98 -pedantic
 
 all: $(NAME)
 

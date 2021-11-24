@@ -5,7 +5,7 @@ FILES	=	Zombie\
 			Main
 OBJ 	=	$(FILES:%=%.o)
 SRC		=	$(FILES:%=%.cpp)
-CFLAGS	=	-I ../ex00/ -I . -std=c++98 -pedantic -Wall -Wextra
+CFLAGS	=	-I . -std=c++98 -pedantic -Wall -Wextra -Werror
 
 all: $(NAME)
 
