@@ -12,7 +12,7 @@ ClapTrap::ClapTrap(std::string name)
 {
 	std::cout << "ClapTrap " << name << " ctor called" << std::endl;
 
-	_name = name + "_clap_name";
+	_name = name;
 	_hp = 10;
 	_energy = 10;
 	_ad = 0;
