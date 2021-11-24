@@ -19,6 +19,8 @@ Cat::Cat(const Cat& ref) : Animal(ref)
 
 Cat&	Cat::operator=(const Cat& ref)
 {
+	std::cout << "Cat assignation operator called" << std::endl;
+
 	_type = ref._type;
 	return *this;
 }
@@ -37,5 +39,10 @@ void Cat::MakeSound() const
 
 void	Cat::AddIdea(std::string idea)
 {
+	_brain->AddIdea(idea);
+}
 
+void	Cat::ShareIdeas() const
+{
+	_brain->ShareIdeas();
 }

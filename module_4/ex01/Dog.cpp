@@ -19,6 +19,8 @@ Dog::Dog(const Dog& ref) : Animal(ref)
 
 Dog&	Dog::operator=(const Dog& ref)
 {
+	std::cout << "Dog assignation operator called" << std::endl;
+
 	_type = ref._type;
 	return *this;
 }
@@ -35,7 +37,12 @@ void Dog::MakeSound() const
 	std::cout << "Woef! Woef! ... (continues barking while we continue)" << std::endl;
 }
 
-Brain Dog::GetBrain() const
+void	Dog::AddIdea(std::string idea)
 {
-	return *_brain;
+	_brain->AddIdea(idea);
+}
+
+void	Dog::ShareIdeas() const
+{
+	_brain->ShareIdeas();
 }

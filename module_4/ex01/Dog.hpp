@@ -15,7 +15,8 @@ public:
 	~Dog();
 
 	void	MakeSound() const;
-	void	AddIdea();
+	void	AddIdea(std::string idea);
+	void	ShareIdeas() const;
 
 private:
 	Brain	*_brain;

@@ -4,7 +4,7 @@
 #include "Dog.hpp"
 #include "Cat.hpp"
 
-#define ANIMALCOUNT 4
+#define ANIMALCOUNT 1
 
 // int	main()
 // {
@@ -18,6 +18,7 @@ int	main()
 {
 	const Animal *animals[ANIMALCOUNT];
 
+	std::cout << "init animals:" << std::endl;
 	for (size_t i = 0; i < ANIMALCOUNT; i++)
 	{
 		if (i % 2)
@@ -25,24 +26,19 @@ int	main()
 		else
 			animals[i] = new Dog();
 	}
+	std::cout << std::endl;
 
-	((Dog *)animals[0])->GetBrain().AddIdea("Is that a stranger?");
-	((Dog *)animals[0])->GetBrain().AddIdea("Should I bark at it?");
-	((Dog *)animals[0])->GetBrain().AddIdea("Oh I hear something fall, maybe that's food!");
-	((Dog *)animals[0])->GetBrain().AddIdea("Oh.. it's just a leaf... *sad*");
+	Dog *dog = (Dog *)animals[0];
+	dog->AddIdea("*looks up* Is that a stranger?");
+	dog->AddIdea("Should I bark at it? *starts making noise*");
+	dog->AddIdea("Oh I hear something falling, maybe that's food! *runs into the direction of the falling object*");
+	dog->AddIdea("Oh.. it's just a leaf... *looks betrayed*");
+	dog->ShareIdeas();
 
-	std::cout << ((Dog *)animals[0])->GetBrain().GetIdea(0) << std::endl;
-	std::cout << ((Dog *)animals[0])->GetBrain().GetIdea(1) << std::endl;
-	std::cout << ((Dog *)animals[0])->GetBrain().GetIdea(2) << std::endl;
-	std::cout << ((Dog *)animals[0])->GetBrain().GetIdea(3) << std::endl;
-
-	Dog *dog = new Dog(*((Dog *)animals[0]));
-	dog->MakeSound();
-	std::cout << dog->GetBrain().GetIdea(0) << std::endl;
-	std::cout << dog->GetBrain().GetIdea(0) << std::endl;
-	std::cout << dog->GetBrain().GetIdea(0) << std::endl;
-	std::cout << dog->GetBrain().GetIdea(0) << std::endl;
-	delete dog;
+	Dog *dogCopy = new Dog(*dog);
+	dogCopy->ShareIdeas();
+	std::cout << "Deleting copy" << std::endl;
+	delete dogCopy;
 
 	for (size_t i = 0; i < ANIMALCOUNT; i++)
 	{

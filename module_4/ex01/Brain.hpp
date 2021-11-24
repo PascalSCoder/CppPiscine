@@ -1,7 +1,7 @@
 #ifndef BRAIN_HPP
 # define BRAIN_HPP
 
-#define IDEACOUNT 1
+#define IDEACOUNT 100
 
 #include <string>
 
@@ -13,9 +13,8 @@ public:
 	Brain& operator=(const Brain& ref);
 	~Brain();
 
-	std::string	GetIdea(unsigned int index) const;
-	void		AddIdea(std::string idea);
-	int			GetIdeaCount() const;
+	void	AddIdea(std::string idea);
+	void	ShareIdeas() const;
 
 private:
 	std::string		_ideas[IDEACOUNT];
