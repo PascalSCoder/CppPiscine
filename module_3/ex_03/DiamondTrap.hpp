@@ -14,11 +14,11 @@ public:
 	DiamondTrap& operator=(const DiamondTrap& ref);
 	~DiamondTrap();
 
-	void Attack(std::string const& target) const;
-	void WhoAmI() const;
+	void	Attack(std::string const& target) const;
+	void	WhoAmI() const;
 
 private:
-	std::string _name;
+	std::string	_name;
 };
 
 #endif

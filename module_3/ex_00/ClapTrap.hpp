@@ -17,9 +17,9 @@ public:
 	ClapTrap& operator=(const ClapTrap& ref);
 	~ClapTrap();
 
-	void Attack(std::string const& target) const;
-	void TakeDamage(unsigned int amount) const;
-	void BeRepaired(unsigned int amount) const;
+	void	Attack(std::string const& target) const;
+	void	TakeDamage(unsigned int amount) const;
+	void	BeRepaired(unsigned int amount) const;
 };
 
 #endif
