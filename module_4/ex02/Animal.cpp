@@ -6,8 +6,6 @@
 Animal::Animal()
 {
 	std::cout << "Animal base ctor called" << std::endl;
-
-	_type = "NONE";
 }
 
 Animal::Animal(std::string type)
