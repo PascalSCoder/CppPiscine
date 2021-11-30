@@ -7,7 +7,7 @@ FILES	=	Main\
 			Brain
 OBJ 	=	$(FILES:%=obj/%.o)
 SRC		=	$(FILES:%=%.cpp)
-CFLAGS	=	-I . -std=c++98 -fsanitize=address -pedantic -Wall -Wextra# -Werror
+CFLAGS	=	-I . -std=c++98 -fsanitize=address -pedantic -Wall -Wextra -Werror
 
 all: $(NAME)
 
