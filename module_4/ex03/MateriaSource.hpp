@@ -10,6 +10,13 @@ public:
 	MateriaSource(const MateriaSource& ref);
 	MateriaSource& operator=(const MateriaSource& ref);
 	~MateriaSource();
+
+	void		LearnMateria(AMateria*);
+	AMateria*	CreateMateria(std::string const & type);
+
+private:
+	AMateria	*_materias[MATERIA_MAX];
+
 };
 
 #endif

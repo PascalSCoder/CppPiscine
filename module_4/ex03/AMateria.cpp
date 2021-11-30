@@ -26,7 +26,7 @@ AMateria&	AMateria::operator=(const AMateria& ref)
 
 AMateria::~AMateria()
 {
-
+	std::cout << "AMateria dtor called for " << _type << std::endl;
 }
 
 std::string const& AMateria::GetType() const

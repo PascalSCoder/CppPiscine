@@ -18,7 +18,8 @@ Ice::Ice(const Ice& ref) : AMateria(ref)
 Ice&	Ice::operator=(const Ice& ref)
 {
 	std::cout << "ice assignation overload called" << std::endl;
-	(void)ref; // rm
+
+	(void)ref;
 	return *this;
 }
 

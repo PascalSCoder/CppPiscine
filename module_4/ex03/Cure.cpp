@@ -18,7 +18,8 @@ Cure::Cure(const Cure& ref) : AMateria(ref)
 Cure&	Cure::operator=(const Cure& ref)
 {
 	std::cout << "cure assignation overload called" << std::endl;
-	(void)ref; // rm
+
+	(void)ref;
 	return *this;
 }
 

@@ -38,6 +38,12 @@ Character&	Character::operator=(const Character& ref)
 Character::~Character()
 {
 	std::cout << _name << " dtor called" << std::endl;
+
+	for (size_t i = 0; i < MATERIA_MAX; i++)
+	{
+		if (_materias[i] != nullptr)
+			delete _materias[i];
+	}
 }
 
 std::string const& Character::GetName() const
@@ -74,7 +80,7 @@ void Character::Use(int idx, ICharacter& target)
 {
 	if (idx >= 0 && idx < MATERIA_MAX && _materias[idx] != nullptr)
 	{
-		std::cout << _name << " uses id " << idx << " on " << target.GetName() << std::endl;
+		std::cout << _name << " uses " << _materias[idx]->GetType() << " on " << target.GetName() << std::endl;
 		_materias[idx]->Use(target);
 	}
 	else
