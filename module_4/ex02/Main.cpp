@@ -6,7 +6,7 @@
 
 #define ANIMALCOUNT 4
 
-int	main()
+void	Animals()
 {
 	const Animal *animals[ANIMALCOUNT];
 
@@ -21,10 +21,10 @@ int	main()
 	std::cout << std::endl;
 
 	Dog *dog = (Dog *)animals[0];
-	dog->AddIdea("*looks up* Is that a stranger?");
-	dog->AddIdea("Should I bark at it? *starts making noise*");
-	dog->AddIdea("Oh I hear something falling, maybe that's food! *runs into the direction of the falling object*");
-	dog->AddIdea("Oh.. it's just a leaf... *looks betrayed*");
+	dog->AddIdea("* looks up * Is that a stranger?");
+	dog->AddIdea("Should I bark at it? * starts making noise *");
+	dog->AddIdea("Oh I hear something falling, maybe that's food! * runs into the direction of the falling object *");
+	dog->AddIdea("Oh.. it's just a leaf... * looks betrayed *");
 	dog->ShareIdeas();
 
 	Dog *dogCopy = new Dog(*dog);
@@ -38,7 +38,7 @@ int	main()
 	}
 }
 
-// int main()
+// void Animals()
 // {
 // 	const Animal* j = new Dog();
 // 	const Animal* i = new Cat();
@@ -46,3 +46,9 @@ int	main()
 // 	delete j;//should not create a leak
 // 	delete i;
 // }
+
+int main(int, char **argv)
+{
+	Animals();
+	system(std::string("leaks " + std::string(argv[0]).substr(2) + " > leakresult").c_str());
+}
