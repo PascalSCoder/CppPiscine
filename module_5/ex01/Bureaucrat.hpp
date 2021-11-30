@@ -3,6 +3,10 @@
 
 #include <string>
 
+#include "Form.hpp"
+
+class Form;
+
 class	Bureaucrat
 {
 public:
@@ -15,15 +19,18 @@ public:
 	unsigned int	GetGrade() const;
 	void			IncrGrade();
 	void			DecrGrade();
+	void			SignForm(Form& form);
 
 	class GradeTooLowException : public std::exception
 	{
-		virtual const char* what() const throw();
+		public:
+			virtual const char* what() const throw();
 	};
 
 	class GradeTooHighException : public std::exception
 	{
-		virtual const char* what() const throw();
+		public:
+			virtual const char* what() const throw();
 	};
 
 private:
@@ -33,6 +40,6 @@ private:
 	void	SetGrade(unsigned int newGrade);
 };
 
-std::ostream& operator<<(std::ostream& os, const Bureaucrat& ref);
+std::ostream&	operator<<(std::ostream& os, const Bureaucrat& ref);
 
 #endif

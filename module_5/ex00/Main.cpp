@@ -5,6 +5,15 @@
 
 int main()
 {
-	Bureaucrat crat("Mankey", 0);
-	crat.DecrGrade();
+	try
+	{
+		Bureaucrat crat("Mankey", 1);
+		std::cout << crat << std::endl;
+		crat.DecrGrade();
+		std::cout << crat << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 }
