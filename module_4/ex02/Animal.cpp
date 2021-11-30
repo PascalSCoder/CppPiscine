@@ -39,7 +39,3 @@ std::string Animal::GetType() const
 {
 	return _type;
 }
-
-void Animal::MakeSound() const
-{
-}

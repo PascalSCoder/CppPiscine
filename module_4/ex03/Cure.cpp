@@ -12,6 +12,7 @@ Cure::Cure(const Cure& ref) : AMateria(ref)
 {
 	std::cout << "cure copy ctor called" << std::endl;
 
+	_type = "cure";
 	*this = ref;
 }
 

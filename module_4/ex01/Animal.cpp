@@ -44,4 +44,6 @@ std::string Animal::GetType() const
 
 void Animal::MakeSound() const
 {
+	std::cout << "* The universe starts to crackle, everything seems to be falling apart *" << std::endl;
+	std::cout << "RoarrrRibbitTjirpBuzzGobbleGobbleWoefMeowQuackQuackHoothoooothootCluckCluckCluckBaaaaBaaaaaOinkOinkMoooooo!!" << std::endl;
 }

@@ -10,7 +10,7 @@ public:
 
 	std::string	GetType() const;
 
-	virtual void	MakeSound() const;
+	virtual void	MakeSound() const = 0;
 
 protected:
 	Animal();

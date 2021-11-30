@@ -12,6 +12,7 @@ Ice::Ice(const Ice& ref) : AMateria(ref)
 {
 	std::cout << "ice copy ctor called" << std::endl;
 
+	_type = "ice";
 	*this = ref;
 }
 

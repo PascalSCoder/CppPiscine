@@ -3,6 +3,8 @@
 
 #include "ICharacter.hpp"
 
+#define MATERIA_MAX 4
+
 class	Character : public ICharacter
 {
 public:
@@ -18,6 +20,7 @@ public:
 
 private:
 	std::string _name;
+	AMateria	*_materias[MATERIA_MAX];
 };
 
 #endif

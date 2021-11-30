@@ -1,14 +1,10 @@
-NAME	=	Animals
+NAME	=	Bureaucrat
 CC		=	g++
 FILES	=	Main\
-			Animal\
-			Dog\
-			Cat\
-			WrongAnimal\
-			WrongCat
+			Bureaucrat
 OBJ 	=	$(FILES:%=obj/%.o)
 SRC		=	$(FILES:%=%.cpp)
-CFLAGS	=	-I . -std=c++98 -pedantic -Wall -Wextra -Werror
+CFLAGS	=	-I . -std=c++98 -pedantic -Wall -Wextra# -Werror
 
 all: $(NAME)
 
@@ -16,7 +12,7 @@ $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
 obj/%.o: %.cpp
-	@mkdir -p obj
+	@mkdir -p obj/
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

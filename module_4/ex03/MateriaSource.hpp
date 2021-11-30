@@ -3,6 +3,8 @@
 
 #include "IMateriaSource.hpp"
 
+#define MATERIA_MAX 4
+
 class	MateriaSource : public IMateriaSource
 {
 public:

@@ -3,8 +3,24 @@
 #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
 
-int main(void)
+// void Animals()
+// {
+// 	const WrongAnimal* meta = new WrongAnimal();
+// 	const WrongAnimal* cat = new WrongCat();
+
+// 	std::cout << cat->GetType() << " " << std::endl;
+
+// 	cat->MakeSound();
+// 	meta->MakeSound();
+
+// 	delete meta;
+// 	delete cat;
+// }
+
+void Animals()
 {
 	const Animal* meta = new Animal();
 	const Animal* dog = new Dog();
@@ -20,4 +36,9 @@ int main(void)
 	delete meta;
 	delete dog;
 	delete cat;
+}
+
+int main(void)
+{
+	Animals();
 }

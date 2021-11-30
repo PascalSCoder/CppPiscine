@@ -26,9 +26,6 @@ Character&	Character::operator=(const Character& ref)
 	{
 		if (_materias[i] != nullptr)
 			delete _materias[i];
-	}
-	for (size_t i = 0; i < MATERIA_MAX; i++)
-	{
 		_materias[i] = ref._materias[i];
 	}
 	_name = ref._name;
@@ -57,7 +54,7 @@ void Character::Equip(AMateria *m)
 	{
 		if (_materias[i] == nullptr)
 		{
-			std::cout << _name << " equips a " << m->GetType() << std::endl;
+			std::cout << _name << " equips spell: " << m->GetType() << std::endl;
 			_materias[i] = m;
 			return;
 		}
