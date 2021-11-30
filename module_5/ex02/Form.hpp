@@ -1,6 +1,8 @@
 #ifndef FORM_HPP
 # define FORM_HPP
 
+#include <string>
+
 #include "Bureaucrat.hpp"
 
 class Bureaucrat;
@@ -8,16 +10,16 @@ class Bureaucrat;
 class	Form
 {
 public:
-	Form(std::string name, unsigned int gradeToSign, unsigned int gradeToExec);
-	Form(const Form& ref);
 	Form& operator=(const Form& ref);
-	~Form();
+	virtual ~Form();
 
 	std::string		GetName();
 	bool			GetIsSigned();
 	unsigned int	GetMinGradeToSign();
 	unsigned int	GetMinGradeToExec();
-	void			BeSigned(Bureaucrat& signer);
+	void			BeSigned(Bureaucrat const& signer);
+	void			Execute(Bureaucrat const& executor) const;
+
 
 	class GradeTooLowException : public std::exception
 	{
@@ -30,6 +32,13 @@ public:
 		public:
 			virtual const char* what() const throw();
 	};
+
+protected:
+	Form(std::string name, unsigned int gradeToSign, unsigned int gradeToExec);
+	Form(const Form& ref);
+	Form();
+
+	virtual void	Action(Bureaucrat const& executor) const = 0;
 
 private:
 	std::string		_name;

@@ -9,7 +9,7 @@ public:
 	Cure();
 	Cure(const Cure& ref);
 	Cure& operator=(const Cure& ref);
-	~Cure();
+	virtual ~Cure();
 
 	AMateria*	Clone() const;
 	void 		Use(ICharacter& target);
