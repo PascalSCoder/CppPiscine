@@ -3,24 +3,20 @@
 #include <string>
 #include <iostream>
 
-Form::Form(std::string name, unsigned int gradeToSign, unsigned int gradeToExec) : _name(name)
+Form::Form(std::string name, unsigned int gradeToSign, unsigned int gradeToExec) : _name(name), _gradeToSign(gradeToSign), _gradeToExec(gradeToExec)
 {
-	SetGrade(gradeToExec, &_minGradeToExec);
-	SetGrade(gradeToSign, &_minGradeToSign);
+	CheckGrade(gradeToSign);
+	CheckGrade(gradeToExec);
 	_isSigned = false;
 }
 
-Form::Form(const Form& ref)
+Form::Form(const Form& ref) : _name(ref._name), _isSigned(ref._isSigned), _gradeToSign(ref._gradeToSign), _gradeToExec(ref._gradeToExec)
 {
-	*this = ref;
 }
 
 Form&	Form::operator=(const Form& ref)
 {
-	_name = ref._name;
-	_isSigned = ref._isSigned;
-	_minGradeToExec = ref._minGradeToExec;
-	_minGradeToSign = ref._minGradeToSign;
+	_isSigned = ref._isSigned; 
 	return *this;
 }
 
@@ -40,30 +36,28 @@ bool Form::GetIsSigned()
 
 unsigned int Form::GetMinGradeToSign()
 {
-	return _minGradeToSign;
+	return _gradeToSign;
 }
 
 unsigned int Form::GetMinGradeToExec()
 {
-	return _minGradeToExec;
+	return _gradeToExec;
 }
 
 void	Form::BeSigned(Bureaucrat& signer)
 {
-	if (signer.GetGrade() > _minGradeToSign)
+	if (signer.GetGrade() > _gradeToSign)
 		throw GradeTooLowException();
 	else
 		_isSigned = true;
 }
 
-void Form::SetGrade(unsigned int newGrade, unsigned int* var)
+void Form::CheckGrade(unsigned int grade)
 {
-	if (newGrade < 1)
+	if (grade < 1)
 		throw GradeTooHighException();
-	else if (newGrade > 150)
+	else if (grade > 150)
 		throw GradeTooLowException();
-	else
-		*var = newGrade;
 }
 
 const char* Form::GradeTooLowException::what() const throw()

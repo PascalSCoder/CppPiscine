@@ -32,12 +32,12 @@ public:
 	};
 
 private:
-	std::string		_name;
-	bool			_isSigned;
-	unsigned int	_minGradeToSign;
-	unsigned int	_minGradeToExec;
+	std::string const	_name;
+	bool				_isSigned;
+	unsigned int const	_gradeToSign;
+	unsigned int const	_gradeToExec;
 
-	void	SetGrade(unsigned int newGrade, unsigned int* var);
+	void	CheckGrade(unsigned int grade);
 };
 
 std::ostream&	operator<<(std::ostream& os, Form& ref);

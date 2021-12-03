@@ -13,8 +13,10 @@ int main()
 	{
 		// Bureaucrat chimp("Chimp", 150);
 		Bureaucrat boss("Boss", 1);
-		Form *form = new PresidentialPardonForm("testtest");
-		form->Execute(boss);
+		Form *shrubbery = new ShrubberyCreationForm("well_painted");
+		Form *robotomy = new RobotomyRequestForm("Targut");
+		shrubbery->Execute(boss);
+		robotomy->Execute(boss);
 		// Form form("Simple form", 100, 50);
 
 		// std::cout << chimp << std::endl;
@@ -25,7 +27,8 @@ int main()
 		// chimp.SignForm(form);
 		// boss.SignForm(form);
 		// std::cout << form << std::endl;
-		delete form;
+		delete shrubbery;
+		delete robotomy;
 	}
 	catch(const std::exception& e)
 	{

@@ -21,10 +21,10 @@ int	main()
 	std::cout << std::endl;
 
 	Dog *dog = (Dog *)animals[0];
-	dog->AddIdea("*looks up* Is that a stranger?");
-	dog->AddIdea("Should I bark at it? *starts making noise*");
-	dog->AddIdea("Oh I hear something falling, maybe that's food! *runs into the direction of the falling object*");
-	dog->AddIdea("Oh.. it's just a leaf... *looks betrayed*");
+	dog->AddIdea("* looks up * Is that a stranger?");
+	dog->AddIdea("Should I bark at it? * starts making noise *");
+	dog->AddIdea("Oh I hear something falling, maybe that's food! * runs into the direction of the falling object *");
+	dog->AddIdea("Oh.. it's just a leaf... * looks betrayed *");
 	dog->ShareIdeas();
 
 	Dog *dogCopy = new Dog(*dog);
@@ -36,6 +36,9 @@ int	main()
 	{
 		delete animals[i];
 	}
+
+	const Animal aminol;
+	aminol.MakeSound();
 }
 
 // int main()

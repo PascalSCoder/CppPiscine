@@ -6,6 +6,12 @@
 
 #define ANIMALCOUNT 4
 
+// void Animals()
+// {
+// 	const Animal aminol;
+// 	aminol.MakeSound();
+// }
+
 void	Animals()
 {
 	const Animal *animals[ANIMALCOUNT];
@@ -37,15 +43,6 @@ void	Animals()
 		delete animals[i];
 	}
 }
-
-// void Animals()
-// {
-// 	const Animal* j = new Dog();
-// 	const Animal* i = new Cat();
-
-// 	delete j;//should not create a leak
-// 	delete i;
-// }
 
 int main(int, char **argv)
 {

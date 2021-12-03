@@ -34,6 +34,8 @@ public:
 	};
 
 protected:
+	std::string		_target;
+
 	Form(std::string name, unsigned int gradeToSign, unsigned int gradeToExec);
 	Form(const Form& ref);
 	Form();
