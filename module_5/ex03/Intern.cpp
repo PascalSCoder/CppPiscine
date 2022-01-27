@@ -52,6 +52,6 @@ Form	*Intern::MakeForm(std::string form, std::string target)
 		std::cout << "The intern searched everywhere, but the dummy couldn't find " << form << " for us..." << std::endl;
 		return nullptr;
 	}
-	std::cout << "Intern creates " << form << std::endl;
+	std::cout << "Intern creates " << createdForm->GetName() << std::endl;
 	return createdForm;
 }
