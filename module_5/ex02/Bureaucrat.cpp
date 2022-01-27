@@ -17,7 +17,6 @@ Bureaucrat::Bureaucrat(const Bureaucrat& ref)
 Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& ref)
 {
 	_grade = ref._grade;
-	_name = ref._name;
 	return *this;
 }
 
@@ -57,19 +56,27 @@ void Bureaucrat::SetGrade(unsigned int newGrade)
 
 void Bureaucrat::SignForm(Form& form)
 {
-	if (form.GetIsSigned())
-		std::cout << _name << " cannot sign " << form.GetName() << " because the form is already signed." << std::endl;
-	else
+	try
 	{
-		try
-		{
-			form.BeSigned(*this);
-			std::cout << _name << " signs " << form.GetName() << std::endl;
-		}
-		catch(const Form::GradeTooLowException& e)
-		{
-			std::cout << _name << " cannot sign " << form.GetName() << " because of: " << e.what() << std::endl;
-		}
+		form.BeSigned(*this);
+		std::cout << _name << " signed " << form.GetName() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << _name << " cannot sign " << form.GetName() << " because of: " << e.what() << std::endl;
+	}
+}
+
+void Bureaucrat::ExecuteForm(Form& form) const
+{
+	try
+	{
+		form.Execute(*this);
+		std::cout << _name << " executed " << form.GetName() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << _name << " cannot execute " << form.GetName() << " because of: " << e.what() << std::endl;
 	}
 }
 

@@ -1,7 +1,12 @@
 NAME	=	Bureaucrat
 CC		=	g++
 FILES	=	Main\
-			Bureaucrat
+			Bureaucrat\
+			Form\
+			ShrubberyCreationForm\
+			RobotomyRequestForm\
+			PresidentialPardonForm\
+			Intern
 OBJ 	=	$(FILES:%=obj/%.o)
 SRC		=	$(FILES:%=%.cpp)
 CFLAGS	=	-I . -std=c++98 -pedantic -Wall -Wextra -Werror

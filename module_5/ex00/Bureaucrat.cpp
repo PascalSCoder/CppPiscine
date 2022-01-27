@@ -17,7 +17,6 @@ Bureaucrat::Bureaucrat(const Bureaucrat& ref)
 Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& ref)
 {
 	_grade = ref._grade;
-	_name = ref._name;
 	return *this;
 }
 

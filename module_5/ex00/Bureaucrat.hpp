@@ -27,8 +27,8 @@ public:
 	};
 
 private:
-	std::string		_name;
-	unsigned int	_grade;
+	std::string const	_name;
+	unsigned int		_grade;
 
 	void	SetGrade(unsigned int newGrade);
 };

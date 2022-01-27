@@ -19,7 +19,7 @@ Dog::Dog(const Dog& ref) : Animal(ref)
 
 Dog&	Dog::operator=(const Dog& ref)
 {
-	std::cout << "Dog assignation operator called" << std::endl;
+	std::cout << "Dog assignation operator called " << std::endl;
 
 	this->_brain = new Brain(*ref._brain);
 	_type = ref._type;
