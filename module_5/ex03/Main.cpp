@@ -28,43 +28,39 @@ void PrintTitle(std::string str)
 
 int main()
 {
-	try
-	{
-		Intern intern;
+	Intern intern;
 
-		Bureaucrat chimp("Chimp", 150);
-		Bureaucrat boss("Boss", 1);
+	Bureaucrat chimp("Chimp", 150);
+	Bureaucrat boss("Boss", 1);
 
-		Form *form;
+	Form *form;
 
-		// Fail at making forms
-		PrintTitle("Fail at making forms");
-		form = intern.MakeForm("Presidentiall", "TARGUT");
-		form = intern.MakeForm("Shrubberyy", "TARGUT");
-		form = intern.MakeForm("Robotomyy", "TARGUT");
+	// Fail at making forms
+	PrintTitle("Fail at making forms");
+	form = intern.MakeForm("Presidentiall", "TARGUT");
+	form = intern.MakeForm("Shrubberyy", "TARGUT");
+	form = intern.MakeForm("Robotomyy", "TARGUT");
 
 
-		// Successfully create forms
-		PrintTitle("Successfully create forms");
-		form = intern.MakeForm("Presidential", "TARGUT");
-		delete form;
-		form = intern.MakeForm("Shrubbery", "TARGUT");
-		delete form;
-		form = intern.MakeForm("Robotomy", "TARGUT");
+	// Successfully create forms
+	PrintTitle("Successfully create forms");
+	form = intern.MakeForm("Presidential", "TARGUT");
+	delete form;
+	form = intern.MakeForm("Shrubbery", "TARGUT");
+	delete form;
+	form = intern.MakeForm("Robotomy", "TARGUT");
 
-		// Work with it...
-		PrintTitle("Work with it...");
-		chimp.SignForm(*form);
-		boss.SignForm(*form);
-		boss.ExecuteForm(*form);
+	// Work with it...
+	PrintTitle("Work with it...");
+	chimp.SignForm(*form);
+	boss.SignForm(*form);
 
-		// Clean heap
-		delete form;
+	// Execute!
+	PrintTitle("Execute!");
+	boss.ExecuteForm(*form);
 
-		PrintTitle("Done!");
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
+	// Clean heap
+	delete form;
+
+	PrintTitle("Done!");
 }

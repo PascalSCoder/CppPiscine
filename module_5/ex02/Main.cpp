@@ -44,20 +44,21 @@ int main()
 		shrub.SignForm(*presidential);
 		shrub.ExecuteForm(*shrubbery);
 
-		// Successfully sign and execute
+		// Successfully sign
 		PrintTitle("Successfully sign and execute:");
 		shrub.SignForm(*shrubbery);
-		shrub.ExecuteForm(*shrubbery);
-
 		robot.SignForm(*robotomy);
-		robot.ExecuteForm(*robotomy);
-
 		president.SignForm(*presidential);
-		president.ExecuteForm(*presidential);
 
 		// Double check if we can sign again
 		PrintTitle("Double check if we can sign again:");
 		shrub.SignForm(*robotomy);
+
+		// Successfully execute
+		PrintTitle("Successfully execute");
+		shrub.ExecuteForm(*shrubbery);
+		robot.ExecuteForm(*robotomy);
+		president.ExecuteForm(*presidential);
 
 		// Clean heap
 		delete shrubbery;
