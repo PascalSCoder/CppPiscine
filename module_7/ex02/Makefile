@@ -1,4 +1,4 @@
-NAME	=	executable
+NAME	=	arrays
 CC		=	g++
 FILES	=	Main
 OBJ 	=	$(FILES:%=obj/%.o)

@@ -2,28 +2,57 @@
 
 #include <iostream>
 
-void	StrToUpper(std::string str)
+#pragma region Debug
+
+#define C_RESET  "\x1B[0m"
+#define C_RED  "\x1B[31m"
+#define C_GREEN  "\x1B[32m"
+#define C_YELLOW  "\x1B[33m"
+#define C_BLUE  "\x1B[34m"
+#define C_MAGENTA  "\x1B[35m"
+#define C_CYAN  "\x1B[36m"
+#define C_WHITE  "\x1B[37m"
+
+void PrintTitle(std::string str)
 {
-	for (size_t i = 0; i < str.length(); i++)
-	{
-		str[i] = toupper(str[i]);
-		std::cout << "Toupper called on: " << str[i] << std::endl;
-	}
+	std::cout << std::endl << C_CYAN << str << C_RESET << std::endl;
+}
+
+#pragma endregion
+
+template<class T>
+void	Print(T obj)
+{
+	std::cout << obj << std::endl;
 }
 
 int main()
 {
 	std::string strings[] = 
 	{
-		"hello world",
-		"this is nice",
-		"if it will work"
+		"Dogs",
+		"are way more fun",
+		"than cats",
+		"is a very",
+		"polarizing",
+		"statement :p"
 	};
 
-	Iter(strings, 3, &std::string::clear);
+	PrintTitle("Strings! Iter 0 items (ha- ha)");
+	Iter(strings, 0, &Print);
 
-	for (size_t i = 0; i < 3; i++)
+	PrintTitle("Iter 3 items");
+	Iter(strings, 3, &Print);
+
+	PrintTitle("Iter 6 items!");
+	Iter(strings, 6, &Print);
+
+	PrintTitle("Floats! iter 3 items");
+	float floats[] = 
 	{
-		std::cout << strings[i] << std::endl;
-	}
+		0.0f,
+		123.123f,
+		456.456f
+	};
+	Iter(floats, 3, &Print);
 }
