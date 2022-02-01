@@ -35,7 +35,35 @@ void Identify(Base* p)
 
 void Identify(Base& p)
 {
-	Identify(&p);
+	try
+	{
+		A a = dynamic_cast<A&>(p);
+		std::cout << "A" << std::endl;
+		return;
+	}
+	catch(const std::exception& e)
+	{
+	}
+
+	try
+	{
+		B b = dynamic_cast<B&>(p);
+		std::cout << "B" << std::endl;
+		return;
+	}
+	catch(const std::exception& e)
+	{
+	}
+
+	try
+	{
+		C c = dynamic_cast<C&>(p);
+		std::cout << "C" << std::endl;
+		return;
+	}
+	catch(const std::exception& e)
+	{
+	}
 }
 
 Base * Generate(void)
