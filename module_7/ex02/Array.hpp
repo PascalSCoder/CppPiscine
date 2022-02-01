@@ -6,7 +6,7 @@ template<class T>
 class Array
 {
 public:
-	Array()
+	Array() : _array(nullptr)
 	{
 		_size = 0;
 	}
@@ -43,7 +43,7 @@ public:
 			return _array[i];
 	}
 
-	T	operator[](unsigned int i) const
+	T const&	operator[](unsigned int i) const
 	{
 		if (i >= _size)
 			throw std::exception();

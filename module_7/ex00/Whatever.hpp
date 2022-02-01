@@ -1,3 +1,5 @@
+#pragma once
+
 template<class T>
 void	Swap(T& lhs, T& rhs)
 {
@@ -7,13 +9,13 @@ void	Swap(T& lhs, T& rhs)
 }
 
 template<class T>
-T	Max(T& lhs, T& rhs)
+T	Max(T const& lhs, T const& rhs)
 {
 	return rhs >= lhs ? rhs : lhs;
 }
 
 template<class T>
-T	Min(T& lhs, T& rhs)
+T	Min(T const& lhs, T const& rhs)
 {
 	return rhs <= lhs ? rhs : lhs;
 }
