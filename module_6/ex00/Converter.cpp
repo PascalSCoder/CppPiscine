@@ -88,15 +88,8 @@ void	Converter::PrintAsInt() const
 		std::cout << "Impossible" << std::endl;
 	else
 	{
-		try
-		{
-			int value = static_cast<int>(_rawValue);
-			std::cout << value << std::endl;
-		}
-		catch(const std::exception& e)
-		{
-			std::cout << "Impossible" << std::endl;
-		}
+		int value = static_cast<int>(_rawValue);
+		std::cout << value << std::endl;
 	}
 }
 
@@ -107,19 +100,12 @@ void	Converter::PrintAsFloat() const
 		std::cout << "Impossible" << std::endl;
 	else
 	{
-		try
-		{
-			float value = static_cast<float>(_rawValue);
-			float fract;
-			if (std::modf(value, &fract) == 0)
-				std::cout << std::fixed << std::setprecision(1) << value << "f" << std::endl;
-			else
-				std::cout << value << "f" << std::endl;
-		}
-		catch(const std::exception& e)
-		{
-			std::cout << "Impossible" << std::endl;
-		}
+		float value = static_cast<float>(_rawValue);
+		float fract;
+		if (std::modf(value, &fract) == 0)
+			std::cout << std::fixed << std::setprecision(1) << value << "f" << std::endl;
+		else
+			std::cout << value << "f" << std::endl;
 	}
 }
 
@@ -130,18 +116,11 @@ void	Converter::PrintAsDouble() const
 		std::cout << "Impossible" << std::endl;
 	else
 	{
-		try
-		{
-			double value = static_cast<double>(_rawValue);
-			double fract;
-			if (std::modf(value, &fract) == 0)
-				std::cout << std::fixed << std::setprecision(1) << value << std::endl;
-			else
-				std::cout << value << std::endl;
-		}
-		catch(const std::exception& e)
-		{
-			std::cout << "Impossible" << std::endl;
-		}
+		double value = static_cast<double>(_rawValue);
+		double fract;
+		if (std::modf(value, &fract) == 0)
+			std::cout << std::fixed << std::setprecision(1) << value << std::endl;
+		else
+			std::cout << value << std::endl;
 	}
 }
