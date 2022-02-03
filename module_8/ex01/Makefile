@@ -1,6 +1,7 @@
 NAME	=	span
 CC		=	g++
-FILES	=	Main
+FILES	=	Main\
+			Span
 OBJ 	=	$(FILES:%=obj/%.o)
 SRC		=	$(FILES:%=%.cpp)
 CFLAGS	=	-I . -std=c++98 -pedantic -Wall -Wextra# -Werror
