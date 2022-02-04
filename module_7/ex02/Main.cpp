@@ -127,7 +127,20 @@ int main()
 		std::cerr << e.what() << '\n';
 	}
 
-	PrintTitle("Run Codam's supplied Main.cpp test (should not differ in outputs)");
+	PrintTitle("This array has a length of 0, lets try to get/set index 0:");
+	{
+		Array<int> arr(0);
+		try
+		{
+			arr[0] = 42;
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+	}
+
+	PrintTitle("Run Codam's supplied Main.cpp test");
 	SuppliedTests();
 
 	PrintTitle("Done!");

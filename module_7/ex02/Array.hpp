@@ -13,24 +13,35 @@ public:
 
 	Array(unsigned int n)
 	{
-		_array = new T[n];
-		std::memset(_array, 0, n * sizeof(T));
+		if (n == 0)
+			_array = nullptr;
+		else
+		{
+			_array = new T[n];
+			std::memset(_array, 0, n * sizeof(T));
+		}
 		_size = n;
 	}
 
-	Array(Array const& ref)
+	Array(Array const& ref) : _array(nullptr)
 	{
 		*this = ref;
 	}
 
-
 	Array&	operator=(Array const& ref)
 	{
+		if (_array != nullptr)
+			delete[] _array;
 		_size = ref._size;
-		_array = new T[_size];
-		for (size_t i = 0; i < _size; i++)
+		if (_size == 0)
+			_array = nullptr;
+		else
 		{
-			_array[i] = ref._array[i];
+			_array = new T[_size];
+			for (size_t i = 0; i < _size; i++)
+			{
+				_array[i] = ref._array[i];
+			}
 		}
 		return *this;
 	}
@@ -53,7 +64,8 @@ public:
 
 	~Array()
 	{
-		delete[] _array;
+		if (_array != nullptr)
+			delete[] _array;
 	}
 
 	unsigned int Size() const
