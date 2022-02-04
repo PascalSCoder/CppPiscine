@@ -15,16 +15,13 @@ public:
 
 	void	AddNumber(int n);
 
-	// void	AddRange(std::vector<int>::iterator first, std::vector<int>::iterator last);
-
-	template<typename container>
-	void	AddRange(container& c)
+	template<typename iterator>
+	void	AddRange(iterator begin, iterator end)
 	{
-		typename container::iterator it = c.begin();
-		while (it != c.end())
+		while (begin != end)
 		{
-			AddNumber(*it);
-			it++;
+			AddNumber(*begin);
+			begin++;
 		}
 	}
 

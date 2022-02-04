@@ -89,8 +89,7 @@ int main()
 		std::cout << " " << i * 2;
 	}
 	std::cout << std::endl;
-	span.AddRange(vec);
-	// span.AddRange(vec.begin(), vec.end());
+	span.AddRange(vec.begin(), vec.end());
 	std::cout << span << std::endl;
 	std::cout << "Shortest span: " << span.ShortestSpan() << std::endl;
 	std::cout << "Longest span: " << span.LongestSpan() << std::endl;
@@ -106,8 +105,7 @@ int main()
 	std::cout << "Adding " << vec.size() << " items in one go" << std::endl;
 	try
 	{
-		// span.AddRange(vec.begin(), vec.end());
-		span.AddRange(vec);
+		span.AddRange(vec.begin(), vec.end());
 		std::cout << span << std::endl;
 	}
 	catch(const std::exception& e)
