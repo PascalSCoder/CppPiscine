@@ -10,7 +10,7 @@ public:
 	Span(uint n);
 	Span(const Span& ref);
 	Span&		operator=(const Span& ref);
-	int const&	operator[](int i) const;
+	int const&	operator[](uint i) const;
 	~Span();
 
 	void	AddNumber(int n);
@@ -32,8 +32,8 @@ public:
 
 private:
 	std::vector<int>	_vec;
-	uint	_count;
-	uint	_size;
+	uint				_count;
+	uint				_size;
 };
 
 class	SpanFullException : public std::exception
@@ -42,6 +42,11 @@ class	SpanFullException : public std::exception
 };
 
 class	NoSpanException : public std::exception
+{
+	virtual char const* what() const throw();
+};
+
+class	IndexOutOfRangeException : public std::exception
 {
 	virtual char const* what() const throw();
 };

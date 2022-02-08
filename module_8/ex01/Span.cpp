@@ -94,8 +94,15 @@ char const* NoSpanException::what() const throw()
 	return "No span possible exception";
 }
 
-int const&	Span::operator[](int i) const
+char const* IndexOutOfRangeException::what() const throw()
 {
+	return "No span possible exception";
+}
+
+int const&	Span::operator[](uint i) const
+{
+	if (i >= _count)
+		throw IndexOutOfRangeException();
 	return _vec[i];
 }
 
