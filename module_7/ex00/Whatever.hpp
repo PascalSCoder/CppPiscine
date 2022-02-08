@@ -1,9 +1,9 @@
 #pragma once
 
-template<class T>
-void	Swap(T& lhs, T& rhs)
+template<class V>
+void	Swap(V& lhs, V& rhs)
 {
-	T tmp = lhs;
+	V tmp = lhs;
 	lhs = rhs;
 	rhs = tmp;
 }

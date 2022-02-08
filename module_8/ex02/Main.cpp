@@ -118,5 +118,35 @@ int main()
 	Mutant(ints);
 	Deque(ints);
 
+	PrintTitle("Lets try iterating over some strings as well");
+	MutantStack<std::string> strings;
+	strings.push("One");
+	strings.push("For");
+	strings.push("All");
+	strings.push("AND");
+	strings.push("All");
+	strings.push("For");
+	strings.push("One");
+	strings.push(".");
+
+	MutantStack<std::string>::iterator begin = strings.begin();
+	MutantStack<std::string>::iterator end = strings.end();
+
+	while (begin != end)
+	{
+		std::cout << *begin << std::endl;
+		begin++;
+	}
+
+	PrintTitle("Reverse...");
+	MutantStack<std::string>::reverse_iterator rBegin = strings.rbegin();
+	MutantStack<std::string>::reverse_iterator rEnd = strings.rend();
+
+	while (rBegin != rEnd)
+	{
+		std::cout<< *rBegin << std::endl;
+		rBegin++;
+	}
+
 	PrintTitle("Done!");
 }

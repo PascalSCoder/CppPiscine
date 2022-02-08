@@ -36,16 +36,8 @@ int	Span::LongestSpan() const
 	if (_vec.size() <= 1)
 		throw NoSpanException();
 
-	int lowest = INT_MAX;
-	int highest = 0;
-	for (size_t i = 0; i < _vec.size(); i++)
-	{
-		int tmp = _vec[i];
-		if (tmp < lowest)
-			lowest = tmp;
-		if (tmp > highest)
-			highest = tmp;
-	}
+	int lowest = *std::min_element(_vec.begin(), _vec.end());
+	int highest = *std::max_element(_vec.begin(), _vec.end());
 	return abs(highest - lowest);
 }
 
@@ -54,17 +46,15 @@ int	Span::ShortestSpan() const
 	if (_vec.size() <= 1)
 		throw NoSpanException();
 
+	std::vector<int> copy(_vec);
+	std::sort(copy.begin(), copy.end());
+	std::vector<const int>::iterator it = copy.begin();
 	int shortest = INT_MAX;
-	for (size_t i = 0; i < _vec.size(); i++)
+	while (++it != copy.end())
 	{
-		for (size_t j = 0; j < _vec.size(); j++)
-		{
-			if (i == j)
-				continue;
-			int tmp = abs(_vec[i] - _vec[j]);
-			if (tmp < shortest)
-				shortest = tmp;
-		}
+		int diff = *it - *(it - 1);
+		if (diff < shortest)
+			shortest = diff;
 	}
 	return shortest;
 }
