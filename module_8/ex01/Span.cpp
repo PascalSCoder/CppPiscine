@@ -4,7 +4,7 @@
 #include <iostream>
 #include <algorithm>
 
-Span::Span(uint n) : _count(0), _size(n)
+Span::Span(uint n) : _size(n)
 {
 }
 
@@ -16,7 +16,6 @@ Span::Span(const Span& ref)
 Span&	Span::operator=(const Span& ref)
 {
 	_size = ref._size;
-	_count = ref._count;
 	_vec = ref._vec;
 	return *this;
 }
@@ -27,12 +26,12 @@ Span::~Span()
 
 int	Span::LongestSpan() const
 {
-	if (_count <= 1)
+	if (_vec.size() <= 1)
 		throw NoSpanException();
 
 	int lowest = INT_MAX;
 	int highest = 0;
-	for (size_t i = 0; i < _count; i++)
+	for (size_t i = 0; i < _vec.size(); i++)
 	{
 		int tmp = _vec[i];
 		if (tmp < lowest)
@@ -45,13 +44,13 @@ int	Span::LongestSpan() const
 
 int	Span::ShortestSpan() const
 {
-	if (_count <= 1)
+	if (_vec.size() <= 1)
 		throw NoSpanException();
 
 	int shortest = INT_MAX;
-	for (size_t i = 0; i < _count; i++)
+	for (size_t i = 0; i < _vec.size(); i++)
 	{
-		for (size_t j = 0; j < _count; j++)
+		for (size_t j = 0; j < _vec.size(); j++)
 		{
 			if (i == j)
 				continue;
@@ -65,7 +64,7 @@ int	Span::ShortestSpan() const
 
 uint	Span::GetCount() const
 {
-	return _count;
+	return _vec.size();
 }
 
 size_t	Span::GetSize() const
@@ -75,11 +74,8 @@ size_t	Span::GetSize() const
 
 void	Span::AddNumber(int n)
 {
-	if (_count < _size)
-	{
+	if (_vec.size() < _size)
 		_vec.push_back(n);
-		_count++;
-	}
 	else
 		throw SpanFullException();
 }
@@ -101,7 +97,7 @@ char const* IndexOutOfRangeException::what() const throw()
 
 int const&	Span::operator[](uint i) const
 {
-	if (i >= _count)
+	if (i >= _vec.size())
 		throw IndexOutOfRangeException();
 	return _vec[i];
 }

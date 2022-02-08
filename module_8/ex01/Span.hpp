@@ -32,7 +32,6 @@ public:
 
 private:
 	std::vector<int>	_vec;
-	uint				_count;
 	uint				_size;
 };
 
