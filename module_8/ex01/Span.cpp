@@ -24,6 +24,13 @@ Span::~Span()
 {
 }
 
+int const&	Span::operator[](uint i) const
+{
+	if (i >= _vec.size())
+		throw IndexOutOfRangeException();
+	return _vec[i];
+}
+
 int	Span::LongestSpan() const
 {
 	if (_vec.size() <= 1)
@@ -80,6 +87,8 @@ void	Span::AddNumber(int n)
 		throw SpanFullException();
 }
 
+#pragma region Exceptions
+
 char const*	SpanFullException::what() const throw()
 {
 	return "Span is full exception";
@@ -95,12 +104,7 @@ char const* IndexOutOfRangeException::what() const throw()
 	return "No span possible exception";
 }
 
-int const&	Span::operator[](uint i) const
-{
-	if (i >= _vec.size())
-		throw IndexOutOfRangeException();
-	return _vec[i];
-}
+#pragma endregion
 
 std::ostream&	operator<<(std::ostream& os, Span const& span)
 {

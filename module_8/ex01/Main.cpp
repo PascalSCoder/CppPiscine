@@ -36,6 +36,19 @@ int main()
 	PrintTitle("Run Codam Supplied Test Cases");
 	CodamSuppliedTestCase();
 
+	PrintTitle("Create a span of size 2, with the same digits");
+	{
+		Span span(2);
+		for (size_t i = 0; i < 2; i++)
+		{
+			span.AddNumber(42);
+		}
+		std::cout << span << std::endl;
+		std::cout << "Shortest span: " << span.ShortestSpan() << std::endl;
+		std::cout << "Longest span: " << span.LongestSpan() << std::endl;
+	}
+	
+
 	PrintTitle("Construct a span of size 42");
 	Span span(42);
 	std::cout << span << std::endl;
