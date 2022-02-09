@@ -21,6 +21,8 @@ void PrintTitle(std::string str)
 
 void	CodamSuppliedTestCase()
 {
+	PrintTitle("Run Codam Supplied Test Cases");
+
 	Span sp = Span(5);
 	sp.AddNumber(6);
 	sp.AddNumber(3);
@@ -31,61 +33,73 @@ void	CodamSuppliedTestCase()
 	std::cout << sp.LongestSpan() << std::endl;
 }
 
-int main()
+void	SizeTwoSameDigits()
 {
-	PrintTitle("Run Codam Supplied Test Cases");
-	CodamSuppliedTestCase();
-
 	PrintTitle("Create a span of size 2, with the same digits");
+	Span span(2);
+	for (size_t i = 0; i < 2; i++)
 	{
-		Span span(2);
-		for (size_t i = 0; i < 2; i++)
-		{
-			span.AddNumber(42);
-		}
-		std::cout << span << std::endl;
-		std::cout << "Shortest span: " << span.ShortestSpan() << std::endl;
-		std::cout << "Longest span: " << span.LongestSpan() << std::endl;
-	}
-	
-
-	PrintTitle("Construct a span of size 42");
-	Span span(42);
-	std::cout << span << std::endl;
-
-	PrintTitle("Lets fill it up one by one!");
-	for (size_t i = 0; i < 42; i++)
-	{
-		span.AddNumber(i);
+		span.AddNumber(42);
 	}
 	std::cout << span << std::endl;
 	std::cout << "Shortest span: " << span.ShortestSpan() << std::endl;
 	std::cout << "Longest span: " << span.LongestSpan() << std::endl;
+}
 
-	PrintTitle("Lets try to make this crash by overflowing the span!");
-	try
-	{
-		span.AddNumber(69);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
+void	FillSpanSize42()
+{
+	PrintTitle("Span of size 42, filled with [index ^ 2]");
 
-	PrintTitle("We need another test for this... Span of size 0!");
-	span = Span(0);
+	Span span(42);
+	for (size_t i = 0; i < 42; i++)
+	{
+		span.AddNumber(i * i);
+	}
 	std::cout << span << std::endl;
-	try
+	std::cout << "Shortest span: " << span.ShortestSpan() << std::endl;
+	std::cout << "Longest span: " << span.LongestSpan() << std::endl;
+}
+
+void	OverflowChecks()
+{
+	PrintTitle("Lets try to make this crash by overflowing the span!");
+
 	{
-		span.AddNumber(69);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
+		Span span(0);
+		try
+		{
+			span.AddNumber(42);
+			std::cout << "ERROR: THIS LINE SHOULD NOT BE PRINTED" << std::endl;
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
 	}
 
+	{
+		Span span(3);
+		try
+		{
+			for (size_t i = 0; i < 4; i++)
+			{
+				span.AddNumber(i);
+			}
+			std::cout << "ERROR: THIS LINE SHOULD NOT BE PRINTED" << std::endl;
+			
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+	}
+}
+
+void	RandomValuesAndAppend()
+{
 	PrintTitle("Lets fill a span with random digits");
-	span = Span(10);
+
+	Span span = Span(10);
 	for (size_t i = 0; i < 5; i++)
 	{
 		srand(i * time(0));
@@ -93,38 +107,40 @@ int main()
 	}
 	std::cout << span << std::endl;
 
-	PrintTitle("Now we use the range function to add a range of digits in one go :D");
-	std::cout << "Appending:";
-	std::vector<int> vec;
-	for (size_t i = 0; i < 5; i++)
-	{
-		vec.push_back(i * 2);
-		std::cout << " " << i * 2;
-	}
-	std::cout << std::endl;
-	span.AddRange(vec.begin(), vec.end());
+	PrintTitle("Append 5 numbers with AddRange()");
+
+	int arr[] = { 2, 4, 6, 8, 10 };
+	span.AddRange(arr, arr + 5);
 	std::cout << span << std::endl;
 	std::cout << "Shortest span: " << span.ShortestSpan() << std::endl;
 	std::cout << "Longest span: " << span.LongestSpan() << std::endl;
+}
 
-	PrintTitle("And finally, we add just one too much for our range...");
-	span = Span(123456);
-	std::cout << span << std::endl;
-	vec = std::vector<int>();
-	for (size_t i = 0; i < 123457; i++)
-	{
-		vec.push_back(i);
-	}
-	std::cout << "Adding " << vec.size() << " items in one go" << std::endl;
+void	AddRangeOverflow()
+{
+	PrintTitle("Fill span with AddRange(), but overflow the buffer by 1 (123457/123456 digits)");
+
+	int arr[123457];
+	Span span(123456);
 	try
 	{
-		span.AddRange(vec.begin(), vec.end());
-		std::cout << span << std::endl;
+		span.AddRange(arr, arr + 123457);
+		std::cout << "ERROR: THIS LINE SHOULD NOT BE PRINTED" << std::endl;
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
+}
+
+int main()
+{
+	CodamSuppliedTestCase();
+	SizeTwoSameDigits();
+	FillSpanSize42();
+	OverflowChecks();
+	RandomValuesAndAppend();
+	AddRangeOverflow();
 
 	PrintTitle("Done!");
 }
